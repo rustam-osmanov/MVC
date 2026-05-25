@@ -1,7 +1,9 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Рустам Османов · Разработчик с 2013 года</title>
     <!-- Google Fonts + Font Awesome -->
@@ -308,7 +310,7 @@
             <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 12px;">
                 <h1>Рустам Османов</h1>
                 <span class="badge"><i class="fab fa-github"></i> rustam-osmanov</span>
-                <span class="badge"><i class="fas fa-map-marker-alt"></i> Moscow, Russia</span>
+                <span class="badge"><i class="fas fa-map-marker-alt"></i> Москва, Россия</span>
             </div>
             <div class="bio">
                 <i class="fas fa-terminal" style="color:#3fb950; margin-right: 8px;"></i>
@@ -327,7 +329,7 @@
         </div>
     </div>
 
-    <!-- STACK ТЕХНОЛОГИЙ (из GitHub) -->
+    <!-- Стек технологий (из GitHub) -->
     <div class="section-title">
         <i class="fas fa-cubes"></i>
         <span>Мой стек технологий</span>
@@ -338,20 +340,20 @@
         <span class="tech-chip"><i class="fab fa-php"></i> PHP</span>
         <span class="tech-chip"><i class="fas fa-database"></i> Hibernate</span>
         <span class="tech-chip"><i class="fas fa-brain"></i> AI / ML</span>
-        <span class="tech-chip"><i class="fas fa-music"></i> MIDI / Music</span>
+        <span class="tech-chip"><i class="fas fa-music"></i> MIDI / Музыка</span>
         <span class="tech-chip"><i class="fab fa-html5"></i> HTML/CSS/JS</span>
     </div>
 
-    <!-- РЕПОЗИТОРИИ (pinned/актуальные) -->
+    <!-- Избранные проекты -->
     <div class="section-title">
         <i class="fas fa-code-branch"></i>
         <span>Избранные проекты</span>
     </div>
     <div class="repo-grid" id="reposContainer">
-        <!-- динамически будет заполнено через JS но также резервный статик -->
+        <!-- динамически заполняется через JS -->
     </div>
 
-    <!-- СТАТИСТИКА И ВКЛАД -->
+    <!-- Статистика и вклад -->
     <div class="section-title">
         <i class="fas fa-chart-line"></i>
         <span>Активность на GitHub</span>
@@ -363,7 +365,7 @@
         </div>
         <div class="stat-card">
             <div class="stat-number">32</div>
-            <div>contributions (2025-2026)</div>
+            <div>контрибуции (2025-2026)</div>
         </div>
         <div class="stat-card">
             <div class="stat-number">2013</div>
@@ -382,12 +384,12 @@
     </div>
 
     <footer class="footer">
-        <i class="fab fa-github-alt"></i> rustam-osmanov · открытый к сотрудничеству · 2026
+        <i class="fab fa-github-alt"></i> rustam-osmanov · открыт к сотрудничеству · 2026
     </footer>
 </div>
 
 <script>
-    // === РЕАЛЬНЫЕ РЕПОЗИТОРИИ ИЗ GITHUB PROFILE ===
+    // === РЕАЛЬНЫЕ РЕПОЗИТОРИИ ИЗ GITHUB ПРОФИЛЯ ===
     const repositories = [
         {
             name: "kover.ru",
@@ -474,7 +476,7 @@
         repoCountSpan.innerText = repositories.length;
     }
 
-    // Социальные ссылки (пример — можно обновить на реальные контакты)
+    // Социальные ссылки (пример — замените на реальные контакты)
     const emailLink = document.getElementById("emailLink");
     if (emailLink) {
         emailLink.href = "mailto:rustam.osmanov@example.com";

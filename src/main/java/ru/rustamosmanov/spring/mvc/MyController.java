@@ -17,7 +17,7 @@ public class MyController {
         return "Spring работает!";
     }
 
-    @RequestMapping(value = "/my", produces = "text/plain;charset=windows-1251")
+    @RequestMapping(value = "/my")
     public String showMyView(){
         return "myView";
     }
