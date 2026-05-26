@@ -22,4 +22,14 @@ public class MyController {
         return "myView";
     }
 
+    @RequestMapping(value = "/askDetails")
+    public String askEmployeeDetails(){
+        return "ask-employee-details-view";
+    }
+
+    @RequestMapping(value = "/showDetails")
+    public String showEmpDetails(){
+        return "show-employee-details-view";
+    }
+
 }
