@@ -21,4 +21,27 @@ public class EmployeeDaoImpl implements EmployeeDAO {
                 .getResultList();
         return allEmployees;
     }
+
+    @Override
+    public void saveEmployee(EmployeeBD employee) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.saveOrUpdate(employee);
+        session.getTransaction().commit();
+    }
+
+    @Override
+    public void deleteEmployee(EmployeeBD employee) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(employee);
+        session.getTransaction().commit();
+    }
+
+    @Override
+    public EmployeeBD getEmployee(int id) {
+        Session session = sessionFactory.openSession();
+        EmployeeBD employee = session.get(EmployeeBD.class,id);
+        return employee;
+    }
 }

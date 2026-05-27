@@ -9,5 +9,5 @@
 <br>
 <br>
 <br>
-<a href = "showAllEmployees">Перейти на страницу взаимодействия БД ></a>
+<a href = "showAllEmployees">Перейти на страницу взаимодействия БД</a>
 </html>

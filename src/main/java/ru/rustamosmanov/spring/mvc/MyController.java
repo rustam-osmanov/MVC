@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.rustamosmanov.spring.mvc.dao.EmployeeDAO;
 import ru.rustamosmanov.spring.mvc.entity.EmployeeBD;
@@ -68,6 +69,36 @@ public class MyController {
         model.addAttribute("allEmps",allEmployees);
         return "all-employees-view";
     }
+
+    @RequestMapping(value = "/addNewEmployee")
+    public String addNewEmployee(Model model){
+        EmployeeBD employee = new EmployeeBD();
+        model.addAttribute("employee",employee);
+        return "add-employee-view";
+    }
+
+    @RequestMapping(value = "/saveEmployee")
+    public String saveEmployee(@ModelAttribute("employee")  EmployeeBD employee, BindingResult result, Model model){
+
+        employeeService.saveEmployee(employee);
+        return "redirect:/showAllEmployees";
+    }
+
+    @RequestMapping(value = "/updateInfo")
+    public String updateEmployee(@RequestParam("empId") int id , Model model){
+        EmployeeBD employee = employeeService.getEmployee(id);
+        model.addAttribute("employee",employee);
+        return "add-employee-view";
+    }
+
+    @RequestMapping(value = "/deleteInfo")
+    public String deleteEmployee(@RequestParam("empId") int id , Model model){
+        EmployeeBD employee = employeeService.getEmployee(id);
+        employeeService.deleteEmployee(employee);
+        return "redirect:/showAllEmployees";
+    }
+
+
 
 
 }
