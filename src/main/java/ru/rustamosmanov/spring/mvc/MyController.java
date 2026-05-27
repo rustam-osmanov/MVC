@@ -2,14 +2,18 @@ package ru.rustamosmanov.spring.mvc;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import ru.rustamosmanov.spring.mvc.dao.EmployeeDAO;
+import ru.rustamosmanov.spring.mvc.entity.EmployeeBD;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -53,5 +57,16 @@ public class MyController {
 
         return "show-employee-details-view";
     }
+
+    @Autowired
+    private EmployeeDAO  employeeDAO;
+
+    @RequestMapping(value = "/showAllEmployees")
+    public String showAllEmployees(Model model){
+        List<EmployeeBD>  allEmployees = employeeDAO.getAllEmployees();
+        model.addAttribute("allEmps",allEmployees);
+        return "all-employees-view";
+    }
+
 
 }
