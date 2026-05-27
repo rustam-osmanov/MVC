@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import ru.rustamosmanov.spring.mvc.dao.EmployeeDAO;
 import ru.rustamosmanov.spring.mvc.entity.EmployeeBD;
+import ru.rustamosmanov.spring.mvc.service.EmployeeService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -59,11 +60,11 @@ public class MyController {
     }
 
     @Autowired
-    private EmployeeDAO  employeeDAO;
+    private EmployeeService employeeService;
 
     @RequestMapping(value = "/showAllEmployees")
     public String showAllEmployees(Model model){
-        List<EmployeeBD>  allEmployees = employeeDAO.getAllEmployees();
+        List<EmployeeBD>  allEmployees = employeeService.getAllEmployees();
         model.addAttribute("allEmps",allEmployees);
         return "all-employees-view";
     }

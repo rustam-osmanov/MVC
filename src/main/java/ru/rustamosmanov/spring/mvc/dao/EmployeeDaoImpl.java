@@ -15,7 +15,6 @@ public class EmployeeDaoImpl implements EmployeeDAO {
     private SessionFactory sessionFactory;
 
     @Override
-    @Transactional
     public List<EmployeeBD> getAllEmployees() {
         Session session = sessionFactory.openSession();
         List<EmployeeBD> allEmployees = session.createQuery("from EmployeeBD",EmployeeBD.class)
