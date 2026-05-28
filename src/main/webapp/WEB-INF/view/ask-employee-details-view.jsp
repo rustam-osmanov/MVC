@@ -8,7 +8,7 @@
 <br>
 <br>
 
-<form:form action="showDetails" modelAttribute="employee">
+<form:form action="showDetails" modelAttribute="employee" method="post">
     Фамилия <form:input path="surname"/>
     <form:errors path="surname"/>
     <br>

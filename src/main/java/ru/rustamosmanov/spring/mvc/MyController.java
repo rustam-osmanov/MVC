@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ru.rustamosmanov.spring.mvc.dao.EmployeeDAO;
 import ru.rustamosmanov.spring.mvc.entity.EmployeeBD;
 import ru.rustamosmanov.spring.mvc.service.EmployeeService;
@@ -42,7 +39,7 @@ public class MyController {
         return "ask-employee-details-view";
     }
 
-    @RequestMapping(value = "/showDetails")
+    @RequestMapping(value = "/showDetails",method = RequestMethod.POST)
     public String showEmpDetails(@Valid @ModelAttribute("employee") Employee emp, BindingResult result, Model model){
         //String empName = request.getParameter("employeeName");
       //  empName = "Мистер " + empName;
