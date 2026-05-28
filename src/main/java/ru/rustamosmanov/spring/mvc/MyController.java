@@ -39,7 +39,7 @@ public class MyController {
         return "ask-employee-details-view";
     }
 
-    @RequestMapping(value = "/showDetails",method = RequestMethod.POST)
+    @PostMapping("/showDetails")
     public String showEmpDetails(@Valid @ModelAttribute("employee") Employee emp, BindingResult result, Model model){
         //String empName = request.getParameter("employeeName");
       //  empName = "Мистер " + empName;
