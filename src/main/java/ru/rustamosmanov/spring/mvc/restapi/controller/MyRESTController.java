@@ -27,10 +27,43 @@ public class MyRESTController {
 
         EmployeeBD employeeBD = null;
         employeeBD = employeeService.getEmployee(id);
-        if (employeeBD == null) {
+        if (employeeBD == null ) {
             throw new NoSuchEmployeeException("Указанный ID =" + id
                     + " не найден в БД!");
         }
         return employeeBD;
     }
+
+    @PostMapping("/employees")
+    public EmployeeBD addNewEmployee(@RequestBody  EmployeeBD employeeBD) {
+        if (employeeBD == null || employeeBD.getId() == null) {
+            throw new NoSuchEmployeeException("Неверный формат данных для данного api post /employees " );
+        }
+
+        employeeService.saveEmployee(employeeBD);
+        return employeeBD;
+    }
+
+    @PutMapping("/employees")
+    public EmployeeBD updateEmployee(@RequestBody  EmployeeBD employeeBD) {
+        if (employeeBD == null || employeeBD.getId() == null) {
+            throw new NoSuchEmployeeException("Неверный формат данных для данного api put /employees " );
+        }
+        if (employeeService.getEmployee(employeeBD.getId())  == null) {
+            throw new NoSuchEmployeeException("Некорректный формат данных для данного api put /employees " );
+        }
+        employeeService.saveEmployee(employeeBD);
+        return employeeBD;
+    }
+
+    @DeleteMapping("/employees/{id}")
+    public EmployeeBD deleteEmployeeById(@PathVariable("id") int id) {
+        EmployeeBD employeeBD = employeeService.getEmployee(id);
+        if (employeeBD == null) {
+            throw new NoSuchEmployeeException("Неверный формат данных для данного api put /employees " );
+        }
+        employeeService.deleteEmployee(employeeBD);
+        return employeeBD;
+    }
+
 }
